@@ -1,11 +1,12 @@
 <?php
 
+use Map\WpMaosea0125BookTableMap;
+
 class BooklistDatabase
 {
     public function createTable(){
         global $wpdb;
-
-        $table = $wpdb->prefix . 'maosea0125_booklist';
+        $table = WpMaosea0125BookTableMap::TABLE_NAME;
 
         $sql = "CREATE TABLE " . $table . " (
                     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -34,7 +35,8 @@ class BooklistDatabase
 
     public function deleteTable(){
         global $wpdb;
-        $booklistTable = $wpdb->prefix . "maosea0125_booklist";
-        $wpdb->query($wpdb->prepare("DROP TABLE IF EXISTS $booklistTable", $booklistTable));
+        $table = WpMaosea0125BookTableMap::TABLE_NAME;
+
+        $wpdb->query($wpdb->prepare("DROP TABLE IF EXISTS $table", $booklistTable));
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="default" defaultIdMethod="native">
+    <table name="wp_maosea0125_book">
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="isbn" type="varchar" size="255" required="true" />
+        <column name="name" type="varchar" size="255" required="true" />
+        <column name="cover" type="varchar" size="255" />
+        <column name="author" type="varchar" size="255" />
+        <column name="publisher" type="varchar" size="255" />
+        <column name="original_name" type="varchar" size="255" />
+        <column name="translator" type="varchar" size="255" />
+        <column name="publish_date" type="varchar" size="255" />
+        <column name="page" type="varchar" size="255" />
+        <column name="price" type="varchar" size="255" />
+        <column name="binding" type="varchar" size="255" />
+        <column name="series" type="varchar" size="255" />
+        <column name="description" type="longvarchar" />
+        <column name="author_description" type="longvarchar" />
+        <behavior name="timestampable" />
+    </table>
+</database>

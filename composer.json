@@ -1,0 +1,21 @@
+{
+    "name": "maosea0125/wpbooklist",
+    "description": "Wordpress Booklist Plugin",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "maosea0125",
+            "email": "maosea0125@163.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "propel/propel": "~2.0@dev",
+        "twig/twig": "~1.0",
+        "symfony/http-foundation": "^3.2"
+    },
+    "autoload": {
+        "classmap": ["model/", "wpbooklist/"]
+    }
+}

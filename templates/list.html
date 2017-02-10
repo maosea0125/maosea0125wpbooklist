@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="wrap">
+        <h1 class="wp-heading-inline">书籍</h1>
+
+        <a href="admin.php?page=maosea0125_book&action=edit" class="page-title-action">新建书籍</a>
+        <hr class="wp-header-end">
+        
+        <br />
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th width="5%">ID</th>
+                    <th width="20%">ISBN</th>
+                    <th width="*">书籍名称</th>
+                    <th width="10%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if pagination.getNbResults() == 0 %}
+                    <tr><td style="text-align:center;" colspan='6'>暂时没有数据</td></tr>
+                {% else %}
+                    {% for item in pagination %}
+                        <tr data-id="{{ item.Id }}">
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.isbn }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>
+                                <a title="编辑" href="admin.php?page=maosea0125_book&action=edit&id={{item.id}}" role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+                                <a title="删除" href="admin.php?page=maosea0125_book&action=delete&id={{item.id}}" role="button"><i class="glyphicon glyphicon-remove"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
