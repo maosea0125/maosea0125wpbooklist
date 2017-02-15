@@ -59,7 +59,7 @@ class WpMaosea0125BookTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 17;
+    const NUM_COLUMNS = 19;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class WpMaosea0125BookTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 17;
+    const NUM_HYDRATE_COLUMNS = 19;
 
     /**
      * the column name for the id field
@@ -147,6 +147,16 @@ class WpMaosea0125BookTableMap extends TableMap
     const COL_AUTHOR_DESCRIPTION = 'wp_maosea0125_book.author_description';
 
     /**
+     * the column name for the buylink field
+     */
+    const COL_BUYLINK = 'wp_maosea0125_book.buylink';
+
+    /**
+     * the column name for the douban_score field
+     */
+    const COL_DOUBAN_SCORE = 'wp_maosea0125_book.douban_score';
+
+    /**
      * the column name for the created_at field
      */
     const COL_CREATED_AT = 'wp_maosea0125_book.created_at';
@@ -168,11 +178,11 @@ class WpMaosea0125BookTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Id', 'Isbn', 'Name', 'Cover', 'Author', 'Publisher', 'OriginalName', 'Translator', 'PublishDate', 'Page', 'Price', 'Binding', 'Series', 'Description', 'AuthorDescription', 'CreatedAt', 'UpdatedAt', ),
-        self::TYPE_CAMELNAME     => array('id', 'isbn', 'name', 'cover', 'author', 'publisher', 'originalName', 'translator', 'publishDate', 'page', 'price', 'binding', 'series', 'description', 'authorDescription', 'createdAt', 'updatedAt', ),
-        self::TYPE_COLNAME       => array(WpMaosea0125BookTableMap::COL_ID, WpMaosea0125BookTableMap::COL_ISBN, WpMaosea0125BookTableMap::COL_NAME, WpMaosea0125BookTableMap::COL_COVER, WpMaosea0125BookTableMap::COL_AUTHOR, WpMaosea0125BookTableMap::COL_PUBLISHER, WpMaosea0125BookTableMap::COL_ORIGINAL_NAME, WpMaosea0125BookTableMap::COL_TRANSLATOR, WpMaosea0125BookTableMap::COL_PUBLISH_DATE, WpMaosea0125BookTableMap::COL_PAGE, WpMaosea0125BookTableMap::COL_PRICE, WpMaosea0125BookTableMap::COL_BINDING, WpMaosea0125BookTableMap::COL_SERIES, WpMaosea0125BookTableMap::COL_DESCRIPTION, WpMaosea0125BookTableMap::COL_AUTHOR_DESCRIPTION, WpMaosea0125BookTableMap::COL_CREATED_AT, WpMaosea0125BookTableMap::COL_UPDATED_AT, ),
-        self::TYPE_FIELDNAME     => array('id', 'isbn', 'name', 'cover', 'author', 'publisher', 'original_name', 'translator', 'publish_date', 'page', 'price', 'binding', 'series', 'description', 'author_description', 'created_at', 'updated_at', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
+        self::TYPE_PHPNAME       => array('Id', 'Isbn', 'Name', 'Cover', 'Author', 'Publisher', 'OriginalName', 'Translator', 'PublishDate', 'Page', 'Price', 'Binding', 'Series', 'Description', 'AuthorDescription', 'Buylink', 'DoubanScore', 'CreatedAt', 'UpdatedAt', ),
+        self::TYPE_CAMELNAME     => array('id', 'isbn', 'name', 'cover', 'author', 'publisher', 'originalName', 'translator', 'publishDate', 'page', 'price', 'binding', 'series', 'description', 'authorDescription', 'buylink', 'doubanScore', 'createdAt', 'updatedAt', ),
+        self::TYPE_COLNAME       => array(WpMaosea0125BookTableMap::COL_ID, WpMaosea0125BookTableMap::COL_ISBN, WpMaosea0125BookTableMap::COL_NAME, WpMaosea0125BookTableMap::COL_COVER, WpMaosea0125BookTableMap::COL_AUTHOR, WpMaosea0125BookTableMap::COL_PUBLISHER, WpMaosea0125BookTableMap::COL_ORIGINAL_NAME, WpMaosea0125BookTableMap::COL_TRANSLATOR, WpMaosea0125BookTableMap::COL_PUBLISH_DATE, WpMaosea0125BookTableMap::COL_PAGE, WpMaosea0125BookTableMap::COL_PRICE, WpMaosea0125BookTableMap::COL_BINDING, WpMaosea0125BookTableMap::COL_SERIES, WpMaosea0125BookTableMap::COL_DESCRIPTION, WpMaosea0125BookTableMap::COL_AUTHOR_DESCRIPTION, WpMaosea0125BookTableMap::COL_BUYLINK, WpMaosea0125BookTableMap::COL_DOUBAN_SCORE, WpMaosea0125BookTableMap::COL_CREATED_AT, WpMaosea0125BookTableMap::COL_UPDATED_AT, ),
+        self::TYPE_FIELDNAME     => array('id', 'isbn', 'name', 'cover', 'author', 'publisher', 'original_name', 'translator', 'publish_date', 'page', 'price', 'binding', 'series', 'description', 'author_description', 'buylink', 'douban_score', 'created_at', 'updated_at', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
     );
 
     /**
@@ -182,11 +192,11 @@ class WpMaosea0125BookTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Id' => 0, 'Isbn' => 1, 'Name' => 2, 'Cover' => 3, 'Author' => 4, 'Publisher' => 5, 'OriginalName' => 6, 'Translator' => 7, 'PublishDate' => 8, 'Page' => 9, 'Price' => 10, 'Binding' => 11, 'Series' => 12, 'Description' => 13, 'AuthorDescription' => 14, 'CreatedAt' => 15, 'UpdatedAt' => 16, ),
-        self::TYPE_CAMELNAME     => array('id' => 0, 'isbn' => 1, 'name' => 2, 'cover' => 3, 'author' => 4, 'publisher' => 5, 'originalName' => 6, 'translator' => 7, 'publishDate' => 8, 'page' => 9, 'price' => 10, 'binding' => 11, 'series' => 12, 'description' => 13, 'authorDescription' => 14, 'createdAt' => 15, 'updatedAt' => 16, ),
-        self::TYPE_COLNAME       => array(WpMaosea0125BookTableMap::COL_ID => 0, WpMaosea0125BookTableMap::COL_ISBN => 1, WpMaosea0125BookTableMap::COL_NAME => 2, WpMaosea0125BookTableMap::COL_COVER => 3, WpMaosea0125BookTableMap::COL_AUTHOR => 4, WpMaosea0125BookTableMap::COL_PUBLISHER => 5, WpMaosea0125BookTableMap::COL_ORIGINAL_NAME => 6, WpMaosea0125BookTableMap::COL_TRANSLATOR => 7, WpMaosea0125BookTableMap::COL_PUBLISH_DATE => 8, WpMaosea0125BookTableMap::COL_PAGE => 9, WpMaosea0125BookTableMap::COL_PRICE => 10, WpMaosea0125BookTableMap::COL_BINDING => 11, WpMaosea0125BookTableMap::COL_SERIES => 12, WpMaosea0125BookTableMap::COL_DESCRIPTION => 13, WpMaosea0125BookTableMap::COL_AUTHOR_DESCRIPTION => 14, WpMaosea0125BookTableMap::COL_CREATED_AT => 15, WpMaosea0125BookTableMap::COL_UPDATED_AT => 16, ),
-        self::TYPE_FIELDNAME     => array('id' => 0, 'isbn' => 1, 'name' => 2, 'cover' => 3, 'author' => 4, 'publisher' => 5, 'original_name' => 6, 'translator' => 7, 'publish_date' => 8, 'page' => 9, 'price' => 10, 'binding' => 11, 'series' => 12, 'description' => 13, 'author_description' => 14, 'created_at' => 15, 'updated_at' => 16, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
+        self::TYPE_PHPNAME       => array('Id' => 0, 'Isbn' => 1, 'Name' => 2, 'Cover' => 3, 'Author' => 4, 'Publisher' => 5, 'OriginalName' => 6, 'Translator' => 7, 'PublishDate' => 8, 'Page' => 9, 'Price' => 10, 'Binding' => 11, 'Series' => 12, 'Description' => 13, 'AuthorDescription' => 14, 'Buylink' => 15, 'DoubanScore' => 16, 'CreatedAt' => 17, 'UpdatedAt' => 18, ),
+        self::TYPE_CAMELNAME     => array('id' => 0, 'isbn' => 1, 'name' => 2, 'cover' => 3, 'author' => 4, 'publisher' => 5, 'originalName' => 6, 'translator' => 7, 'publishDate' => 8, 'page' => 9, 'price' => 10, 'binding' => 11, 'series' => 12, 'description' => 13, 'authorDescription' => 14, 'buylink' => 15, 'doubanScore' => 16, 'createdAt' => 17, 'updatedAt' => 18, ),
+        self::TYPE_COLNAME       => array(WpMaosea0125BookTableMap::COL_ID => 0, WpMaosea0125BookTableMap::COL_ISBN => 1, WpMaosea0125BookTableMap::COL_NAME => 2, WpMaosea0125BookTableMap::COL_COVER => 3, WpMaosea0125BookTableMap::COL_AUTHOR => 4, WpMaosea0125BookTableMap::COL_PUBLISHER => 5, WpMaosea0125BookTableMap::COL_ORIGINAL_NAME => 6, WpMaosea0125BookTableMap::COL_TRANSLATOR => 7, WpMaosea0125BookTableMap::COL_PUBLISH_DATE => 8, WpMaosea0125BookTableMap::COL_PAGE => 9, WpMaosea0125BookTableMap::COL_PRICE => 10, WpMaosea0125BookTableMap::COL_BINDING => 11, WpMaosea0125BookTableMap::COL_SERIES => 12, WpMaosea0125BookTableMap::COL_DESCRIPTION => 13, WpMaosea0125BookTableMap::COL_AUTHOR_DESCRIPTION => 14, WpMaosea0125BookTableMap::COL_BUYLINK => 15, WpMaosea0125BookTableMap::COL_DOUBAN_SCORE => 16, WpMaosea0125BookTableMap::COL_CREATED_AT => 17, WpMaosea0125BookTableMap::COL_UPDATED_AT => 18, ),
+        self::TYPE_FIELDNAME     => array('id' => 0, 'isbn' => 1, 'name' => 2, 'cover' => 3, 'author' => 4, 'publisher' => 5, 'original_name' => 6, 'translator' => 7, 'publish_date' => 8, 'page' => 9, 'price' => 10, 'binding' => 11, 'series' => 12, 'description' => 13, 'author_description' => 14, 'buylink' => 15, 'douban_score' => 16, 'created_at' => 17, 'updated_at' => 18, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
     );
 
     /**
@@ -221,6 +231,8 @@ class WpMaosea0125BookTableMap extends TableMap
         $this->addColumn('series', 'Series', 'VARCHAR', false, 255, null);
         $this->addColumn('description', 'Description', 'LONGVARCHAR', false, null, null);
         $this->addColumn('author_description', 'AuthorDescription', 'LONGVARCHAR', false, null, null);
+        $this->addColumn('buylink', 'Buylink', 'VARCHAR', false, 255, null);
+        $this->addColumn('douban_score', 'DoubanScore', 'VARCHAR', false, 255, null);
         $this->addColumn('created_at', 'CreatedAt', 'TIMESTAMP', false, null, null);
         $this->addColumn('updated_at', 'UpdatedAt', 'TIMESTAMP', false, null, null);
     } // initialize()
@@ -401,6 +413,8 @@ class WpMaosea0125BookTableMap extends TableMap
             $criteria->addSelectColumn(WpMaosea0125BookTableMap::COL_SERIES);
             $criteria->addSelectColumn(WpMaosea0125BookTableMap::COL_DESCRIPTION);
             $criteria->addSelectColumn(WpMaosea0125BookTableMap::COL_AUTHOR_DESCRIPTION);
+            $criteria->addSelectColumn(WpMaosea0125BookTableMap::COL_BUYLINK);
+            $criteria->addSelectColumn(WpMaosea0125BookTableMap::COL_DOUBAN_SCORE);
             $criteria->addSelectColumn(WpMaosea0125BookTableMap::COL_CREATED_AT);
             $criteria->addSelectColumn(WpMaosea0125BookTableMap::COL_UPDATED_AT);
         } else {
@@ -419,6 +433,8 @@ class WpMaosea0125BookTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.series');
             $criteria->addSelectColumn($alias . '.description');
             $criteria->addSelectColumn($alias . '.author_description');
+            $criteria->addSelectColumn($alias . '.buylink');
+            $criteria->addSelectColumn($alias . '.douban_score');
             $criteria->addSelectColumn($alias . '.created_at');
             $criteria->addSelectColumn($alias . '.updated_at');
         }

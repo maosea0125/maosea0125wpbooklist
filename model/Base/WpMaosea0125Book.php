@@ -78,94 +78,108 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * The value for the name field.
-     *
+     * 书籍名称
      * @var        string
      */
     protected $name;
 
     /**
      * The value for the cover field.
-     *
+     * 书籍封面
      * @var        string
      */
     protected $cover;
 
     /**
      * The value for the author field.
-     *
+     * 书籍作者
      * @var        string
      */
     protected $author;
 
     /**
      * The value for the publisher field.
-     *
+     * 出版社
      * @var        string
      */
     protected $publisher;
 
     /**
      * The value for the original_name field.
-     *
+     * 书籍原名
      * @var        string
      */
     protected $original_name;
 
     /**
      * The value for the translator field.
-     *
+     * 翻译
      * @var        string
      */
     protected $translator;
 
     /**
      * The value for the publish_date field.
-     *
+     * 出版日期
      * @var        string
      */
     protected $publish_date;
 
     /**
      * The value for the page field.
-     *
+     * 书籍总页数
      * @var        string
      */
     protected $page;
 
     /**
      * The value for the price field.
-     *
+     * 售价
      * @var        string
      */
     protected $price;
 
     /**
      * The value for the binding field.
-     *
+     * 装帧
      * @var        string
      */
     protected $binding;
 
     /**
      * The value for the series field.
-     *
+     * 所属系列
      * @var        string
      */
     protected $series;
 
     /**
      * The value for the description field.
-     *
+     * 书籍描述
      * @var        string
      */
     protected $description;
 
     /**
      * The value for the author_description field.
-     *
+     * 作者描述
      * @var        string
      */
     protected $author_description;
+
+    /**
+     * The value for the buylink field.
+     * 购买链接
+     * @var        string
+     */
+    protected $buylink;
+
+    /**
+     * The value for the douban_score field.
+     * 豆瓣评分
+     * @var        string
+     */
+    protected $douban_score;
 
     /**
      * The value for the created_at field.
@@ -436,7 +450,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [name] column value.
-     *
+     * 书籍名称
      * @return string
      */
     public function getName()
@@ -446,7 +460,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [cover] column value.
-     *
+     * 书籍封面
      * @return string
      */
     public function getCover()
@@ -456,7 +470,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [author] column value.
-     *
+     * 书籍作者
      * @return string
      */
     public function getAuthor()
@@ -466,7 +480,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [publisher] column value.
-     *
+     * 出版社
      * @return string
      */
     public function getPublisher()
@@ -476,7 +490,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [original_name] column value.
-     *
+     * 书籍原名
      * @return string
      */
     public function getOriginalName()
@@ -486,7 +500,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [translator] column value.
-     *
+     * 翻译
      * @return string
      */
     public function getTranslator()
@@ -496,7 +510,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [publish_date] column value.
-     *
+     * 出版日期
      * @return string
      */
     public function getPublishDate()
@@ -506,7 +520,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [page] column value.
-     *
+     * 书籍总页数
      * @return string
      */
     public function getPage()
@@ -516,7 +530,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [price] column value.
-     *
+     * 售价
      * @return string
      */
     public function getPrice()
@@ -526,7 +540,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [binding] column value.
-     *
+     * 装帧
      * @return string
      */
     public function getBinding()
@@ -536,7 +550,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [series] column value.
-     *
+     * 所属系列
      * @return string
      */
     public function getSeries()
@@ -546,7 +560,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [description] column value.
-     *
+     * 书籍描述
      * @return string
      */
     public function getDescription()
@@ -556,12 +570,32 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Get the [author_description] column value.
-     *
+     * 作者描述
      * @return string
      */
     public function getAuthorDescription()
     {
         return $this->author_description;
+    }
+
+    /**
+     * Get the [buylink] column value.
+     * 购买链接
+     * @return string
+     */
+    public function getBuylink()
+    {
+        return $this->buylink;
+    }
+
+    /**
+     * Get the [douban_score] column value.
+     * 豆瓣评分
+     * @return string
+     */
+    public function getDoubanScore()
+    {
+        return $this->douban_score;
     }
 
     /**
@@ -646,7 +680,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [name] column.
-     *
+     * 书籍名称
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -666,7 +700,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [cover] column.
-     *
+     * 书籍封面
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -686,7 +720,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [author] column.
-     *
+     * 书籍作者
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -706,7 +740,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [publisher] column.
-     *
+     * 出版社
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -726,7 +760,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [original_name] column.
-     *
+     * 书籍原名
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -746,7 +780,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [translator] column.
-     *
+     * 翻译
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -766,7 +800,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [publish_date] column.
-     *
+     * 出版日期
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -786,7 +820,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [page] column.
-     *
+     * 书籍总页数
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -806,7 +840,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [price] column.
-     *
+     * 售价
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -826,7 +860,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [binding] column.
-     *
+     * 装帧
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -846,7 +880,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [series] column.
-     *
+     * 所属系列
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -866,7 +900,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [description] column.
-     *
+     * 书籍描述
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -886,7 +920,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
     /**
      * Set the value of [author_description] column.
-     *
+     * 作者描述
      * @param string $v new value
      * @return $this|\WpMaosea0125Book The current object (for fluent API support)
      */
@@ -903,6 +937,46 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
 
         return $this;
     } // setAuthorDescription()
+
+    /**
+     * Set the value of [buylink] column.
+     * 购买链接
+     * @param string $v new value
+     * @return $this|\WpMaosea0125Book The current object (for fluent API support)
+     */
+    public function setBuylink($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->buylink !== $v) {
+            $this->buylink = $v;
+            $this->modifiedColumns[WpMaosea0125BookTableMap::COL_BUYLINK] = true;
+        }
+
+        return $this;
+    } // setBuylink()
+
+    /**
+     * Set the value of [douban_score] column.
+     * 豆瓣评分
+     * @param string $v new value
+     * @return $this|\WpMaosea0125Book The current object (for fluent API support)
+     */
+    public function setDoubanScore($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->douban_score !== $v) {
+            $this->douban_score = $v;
+            $this->modifiedColumns[WpMaosea0125BookTableMap::COL_DOUBAN_SCORE] = true;
+        }
+
+        return $this;
+    } // setDoubanScore()
 
     /**
      * Sets the value of [created_at] column to a normalized version of the date/time value specified.
@@ -1025,13 +1099,19 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : WpMaosea0125BookTableMap::translateFieldName('AuthorDescription', TableMap::TYPE_PHPNAME, $indexType)];
             $this->author_description = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : WpMaosea0125BookTableMap::translateFieldName('CreatedAt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : WpMaosea0125BookTableMap::translateFieldName('Buylink', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->buylink = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : WpMaosea0125BookTableMap::translateFieldName('DoubanScore', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->douban_score = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : WpMaosea0125BookTableMap::translateFieldName('CreatedAt', TableMap::TYPE_PHPNAME, $indexType)];
             if ($col === '0000-00-00 00:00:00') {
                 $col = null;
             }
             $this->created_at = (null !== $col) ? PropelDateTime::newInstance($col, null, 'DateTime') : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : WpMaosea0125BookTableMap::translateFieldName('UpdatedAt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : WpMaosea0125BookTableMap::translateFieldName('UpdatedAt', TableMap::TYPE_PHPNAME, $indexType)];
             if ($col === '0000-00-00 00:00:00') {
                 $col = null;
             }
@@ -1044,7 +1124,7 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 17; // 17 = WpMaosea0125BookTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 19; // 19 = WpMaosea0125BookTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\WpMaosea0125Book'), 0, $e);
@@ -1302,6 +1382,12 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
         if ($this->isColumnModified(WpMaosea0125BookTableMap::COL_AUTHOR_DESCRIPTION)) {
             $modifiedColumns[':p' . $index++]  = 'author_description';
         }
+        if ($this->isColumnModified(WpMaosea0125BookTableMap::COL_BUYLINK)) {
+            $modifiedColumns[':p' . $index++]  = 'buylink';
+        }
+        if ($this->isColumnModified(WpMaosea0125BookTableMap::COL_DOUBAN_SCORE)) {
+            $modifiedColumns[':p' . $index++]  = 'douban_score';
+        }
         if ($this->isColumnModified(WpMaosea0125BookTableMap::COL_CREATED_AT)) {
             $modifiedColumns[':p' . $index++]  = 'created_at';
         }
@@ -1363,6 +1449,12 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
                         break;
                     case 'author_description':
                         $stmt->bindValue($identifier, $this->author_description, PDO::PARAM_STR);
+                        break;
+                    case 'buylink':
+                        $stmt->bindValue($identifier, $this->buylink, PDO::PARAM_STR);
+                        break;
+                    case 'douban_score':
+                        $stmt->bindValue($identifier, $this->douban_score, PDO::PARAM_STR);
                         break;
                     case 'created_at':
                         $stmt->bindValue($identifier, $this->created_at ? $this->created_at->format("Y-m-d H:i:s.u") : null, PDO::PARAM_STR);
@@ -1478,9 +1570,15 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
                 return $this->getAuthorDescription();
                 break;
             case 15:
-                return $this->getCreatedAt();
+                return $this->getBuylink();
                 break;
             case 16:
+                return $this->getDoubanScore();
+                break;
+            case 17:
+                return $this->getCreatedAt();
+                break;
+            case 18:
                 return $this->getUpdatedAt();
                 break;
             default:
@@ -1527,15 +1625,17 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
             $keys[12] => $this->getSeries(),
             $keys[13] => $this->getDescription(),
             $keys[14] => $this->getAuthorDescription(),
-            $keys[15] => $this->getCreatedAt(),
-            $keys[16] => $this->getUpdatedAt(),
+            $keys[15] => $this->getBuylink(),
+            $keys[16] => $this->getDoubanScore(),
+            $keys[17] => $this->getCreatedAt(),
+            $keys[18] => $this->getUpdatedAt(),
         );
-        if ($result[$keys[15]] instanceof \DateTime) {
-            $result[$keys[15]] = $result[$keys[15]]->format('c');
+        if ($result[$keys[17]] instanceof \DateTime) {
+            $result[$keys[17]] = $result[$keys[17]]->format('c');
         }
 
-        if ($result[$keys[16]] instanceof \DateTime) {
-            $result[$keys[16]] = $result[$keys[16]]->format('c');
+        if ($result[$keys[18]] instanceof \DateTime) {
+            $result[$keys[18]] = $result[$keys[18]]->format('c');
         }
 
         $virtualColumns = $this->virtualColumns;
@@ -1622,9 +1722,15 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
                 $this->setAuthorDescription($value);
                 break;
             case 15:
-                $this->setCreatedAt($value);
+                $this->setBuylink($value);
                 break;
             case 16:
+                $this->setDoubanScore($value);
+                break;
+            case 17:
+                $this->setCreatedAt($value);
+                break;
+            case 18:
                 $this->setUpdatedAt($value);
                 break;
         } // switch()
@@ -1699,10 +1805,16 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
             $this->setAuthorDescription($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setCreatedAt($arr[$keys[15]]);
+            $this->setBuylink($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setUpdatedAt($arr[$keys[16]]);
+            $this->setDoubanScore($arr[$keys[16]]);
+        }
+        if (array_key_exists($keys[17], $arr)) {
+            $this->setCreatedAt($arr[$keys[17]]);
+        }
+        if (array_key_exists($keys[18], $arr)) {
+            $this->setUpdatedAt($arr[$keys[18]]);
         }
     }
 
@@ -1789,6 +1901,12 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
         }
         if ($this->isColumnModified(WpMaosea0125BookTableMap::COL_AUTHOR_DESCRIPTION)) {
             $criteria->add(WpMaosea0125BookTableMap::COL_AUTHOR_DESCRIPTION, $this->author_description);
+        }
+        if ($this->isColumnModified(WpMaosea0125BookTableMap::COL_BUYLINK)) {
+            $criteria->add(WpMaosea0125BookTableMap::COL_BUYLINK, $this->buylink);
+        }
+        if ($this->isColumnModified(WpMaosea0125BookTableMap::COL_DOUBAN_SCORE)) {
+            $criteria->add(WpMaosea0125BookTableMap::COL_DOUBAN_SCORE, $this->douban_score);
         }
         if ($this->isColumnModified(WpMaosea0125BookTableMap::COL_CREATED_AT)) {
             $criteria->add(WpMaosea0125BookTableMap::COL_CREATED_AT, $this->created_at);
@@ -1896,6 +2014,8 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
         $copyObj->setSeries($this->getSeries());
         $copyObj->setDescription($this->getDescription());
         $copyObj->setAuthorDescription($this->getAuthorDescription());
+        $copyObj->setBuylink($this->getBuylink());
+        $copyObj->setDoubanScore($this->getDoubanScore());
         $copyObj->setCreatedAt($this->getCreatedAt());
         $copyObj->setUpdatedAt($this->getUpdatedAt());
         if ($makeNew) {
@@ -1948,6 +2068,8 @@ abstract class WpMaosea0125Book implements ActiveRecordInterface
         $this->series = null;
         $this->description = null;
         $this->author_description = null;
+        $this->buylink = null;
+        $this->douban_score = null;
         $this->created_at = null;
         $this->updated_at = null;
         $this->alreadyInSave = false;

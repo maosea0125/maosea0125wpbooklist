@@ -3,19 +3,21 @@
     <table name="wp_maosea0125_book">
         <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
         <column name="isbn" type="varchar" size="255" required="true" />
-        <column name="name" type="varchar" size="255" required="true" />
-        <column name="cover" type="varchar" size="255" />
-        <column name="author" type="varchar" size="255" />
-        <column name="publisher" type="varchar" size="255" />
-        <column name="original_name" type="varchar" size="255" />
-        <column name="translator" type="varchar" size="255" />
-        <column name="publish_date" type="varchar" size="255" />
-        <column name="page" type="varchar" size="255" />
-        <column name="price" type="varchar" size="255" />
-        <column name="binding" type="varchar" size="255" />
-        <column name="series" type="varchar" size="255" />
-        <column name="description" type="longvarchar" />
-        <column name="author_description" type="longvarchar" />
+        <column name="name" type="varchar" size="255" required="true" description="书籍名称" />
+        <column name="cover" type="varchar" size="255" description="书籍封面" />
+        <column name="author" type="varchar" size="255" description="书籍作者" />
+        <column name="publisher" type="varchar" size="255" description="出版社" />
+        <column name="original_name" type="varchar" size="255" description="书籍原名" />
+        <column name="translator" type="varchar" size="255" description="翻译" />
+        <column name="publish_date" type="varchar" size="255" description="出版日期" />
+        <column name="page" type="varchar" size="255" description="书籍总页数" />
+        <column name="price" type="varchar" size="255" description="售价" />
+        <column name="binding" type="varchar" size="255" description="装帧" />
+        <column name="series" type="varchar" size="255" description="所属系列" />
+        <column name="description" type="longvarchar" description="书籍描述" />
+        <column name="author_description" type="longvarchar" description="作者描述" />
+        <column name="buylink" type="varchar" description="购买链接" />
+        <column name="douban_score" type="varchar" description="豆瓣评分" />
         <behavior name="timestampable" />
     </table>
 </database>

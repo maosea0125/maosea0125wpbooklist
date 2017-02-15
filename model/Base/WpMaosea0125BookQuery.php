@@ -34,6 +34,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWpMaosea0125BookQuery orderBySeries($order = Criteria::ASC) Order by the series column
  * @method     ChildWpMaosea0125BookQuery orderByDescription($order = Criteria::ASC) Order by the description column
  * @method     ChildWpMaosea0125BookQuery orderByAuthorDescription($order = Criteria::ASC) Order by the author_description column
+ * @method     ChildWpMaosea0125BookQuery orderByBuylink($order = Criteria::ASC) Order by the buylink column
+ * @method     ChildWpMaosea0125BookQuery orderByDoubanScore($order = Criteria::ASC) Order by the douban_score column
  * @method     ChildWpMaosea0125BookQuery orderByCreatedAt($order = Criteria::ASC) Order by the created_at column
  * @method     ChildWpMaosea0125BookQuery orderByUpdatedAt($order = Criteria::ASC) Order by the updated_at column
  *
@@ -52,6 +54,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWpMaosea0125BookQuery groupBySeries() Group by the series column
  * @method     ChildWpMaosea0125BookQuery groupByDescription() Group by the description column
  * @method     ChildWpMaosea0125BookQuery groupByAuthorDescription() Group by the author_description column
+ * @method     ChildWpMaosea0125BookQuery groupByBuylink() Group by the buylink column
+ * @method     ChildWpMaosea0125BookQuery groupByDoubanScore() Group by the douban_score column
  * @method     ChildWpMaosea0125BookQuery groupByCreatedAt() Group by the created_at column
  * @method     ChildWpMaosea0125BookQuery groupByUpdatedAt() Group by the updated_at column
  *
@@ -81,6 +85,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWpMaosea0125Book findOneBySeries(string $series) Return the first ChildWpMaosea0125Book filtered by the series column
  * @method     ChildWpMaosea0125Book findOneByDescription(string $description) Return the first ChildWpMaosea0125Book filtered by the description column
  * @method     ChildWpMaosea0125Book findOneByAuthorDescription(string $author_description) Return the first ChildWpMaosea0125Book filtered by the author_description column
+ * @method     ChildWpMaosea0125Book findOneByBuylink(string $buylink) Return the first ChildWpMaosea0125Book filtered by the buylink column
+ * @method     ChildWpMaosea0125Book findOneByDoubanScore(string $douban_score) Return the first ChildWpMaosea0125Book filtered by the douban_score column
  * @method     ChildWpMaosea0125Book findOneByCreatedAt(string $created_at) Return the first ChildWpMaosea0125Book filtered by the created_at column
  * @method     ChildWpMaosea0125Book findOneByUpdatedAt(string $updated_at) Return the first ChildWpMaosea0125Book filtered by the updated_at column *
 
@@ -102,6 +108,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWpMaosea0125Book requireOneBySeries(string $series) Return the first ChildWpMaosea0125Book filtered by the series column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWpMaosea0125Book requireOneByDescription(string $description) Return the first ChildWpMaosea0125Book filtered by the description column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWpMaosea0125Book requireOneByAuthorDescription(string $author_description) Return the first ChildWpMaosea0125Book filtered by the author_description column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWpMaosea0125Book requireOneByBuylink(string $buylink) Return the first ChildWpMaosea0125Book filtered by the buylink column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWpMaosea0125Book requireOneByDoubanScore(string $douban_score) Return the first ChildWpMaosea0125Book filtered by the douban_score column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWpMaosea0125Book requireOneByCreatedAt(string $created_at) Return the first ChildWpMaosea0125Book filtered by the created_at column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWpMaosea0125Book requireOneByUpdatedAt(string $updated_at) Return the first ChildWpMaosea0125Book filtered by the updated_at column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
@@ -121,6 +129,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWpMaosea0125Book[]|ObjectCollection findBySeries(string $series) Return ChildWpMaosea0125Book objects filtered by the series column
  * @method     ChildWpMaosea0125Book[]|ObjectCollection findByDescription(string $description) Return ChildWpMaosea0125Book objects filtered by the description column
  * @method     ChildWpMaosea0125Book[]|ObjectCollection findByAuthorDescription(string $author_description) Return ChildWpMaosea0125Book objects filtered by the author_description column
+ * @method     ChildWpMaosea0125Book[]|ObjectCollection findByBuylink(string $buylink) Return ChildWpMaosea0125Book objects filtered by the buylink column
+ * @method     ChildWpMaosea0125Book[]|ObjectCollection findByDoubanScore(string $douban_score) Return ChildWpMaosea0125Book objects filtered by the douban_score column
  * @method     ChildWpMaosea0125Book[]|ObjectCollection findByCreatedAt(string $created_at) Return ChildWpMaosea0125Book objects filtered by the created_at column
  * @method     ChildWpMaosea0125Book[]|ObjectCollection findByUpdatedAt(string $updated_at) Return ChildWpMaosea0125Book objects filtered by the updated_at column
  * @method     ChildWpMaosea0125Book[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
@@ -221,7 +231,7 @@ abstract class WpMaosea0125BookQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT id, isbn, name, cover, author, publisher, original_name, translator, publish_date, page, price, binding, series, description, author_description, created_at, updated_at FROM wp_maosea0125_book WHERE id = :p0';
+        $sql = 'SELECT id, isbn, name, cover, author, publisher, original_name, translator, publish_date, page, price, binding, series, description, author_description, buylink, douban_score, created_at, updated_at FROM wp_maosea0125_book WHERE id = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -700,6 +710,56 @@ abstract class WpMaosea0125BookQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WpMaosea0125BookTableMap::COL_AUTHOR_DESCRIPTION, $authorDescription, $comparison);
+    }
+
+    /**
+     * Filter the query on the buylink column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByBuylink('fooValue');   // WHERE buylink = 'fooValue'
+     * $query->filterByBuylink('%fooValue%', Criteria::LIKE); // WHERE buylink LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $buylink The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWpMaosea0125BookQuery The current query, for fluid interface
+     */
+    public function filterByBuylink($buylink = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($buylink)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WpMaosea0125BookTableMap::COL_BUYLINK, $buylink, $comparison);
+    }
+
+    /**
+     * Filter the query on the douban_score column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByDoubanScore('fooValue');   // WHERE douban_score = 'fooValue'
+     * $query->filterByDoubanScore('%fooValue%', Criteria::LIKE); // WHERE douban_score LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $doubanScore The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWpMaosea0125BookQuery The current query, for fluid interface
+     */
+    public function filterByDoubanScore($doubanScore = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($doubanScore)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WpMaosea0125BookTableMap::COL_DOUBAN_SCORE, $doubanScore, $comparison);
     }
 
     /**
