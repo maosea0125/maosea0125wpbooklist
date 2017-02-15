@@ -7,11 +7,11 @@ class Book
 {
     public function indexAction($request, $twig){
         $books = WpMaosea0125BookQuery::create();
-        $pagination = new PropelModelPager($books, 1);
+        $pagination = new PropelModelPager($books, 20);
         $currentPager = $request->query->get('pager') ? intval($request->query->get('pager')) : 1;
         $pagination->setPage($currentPager);
         $pagination->init();
-// var_dump(get_class_methods($pagination), $pagination->getPreviousPage());exit;
+
         return $twig->display('list.html', array(
             'pagination' => $pagination,
             'message' => $request->getSession()->getFlashBag()->get('message'),
