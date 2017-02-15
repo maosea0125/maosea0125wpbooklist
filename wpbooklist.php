@@ -1,4 +1,7 @@
 <?php
+
+use Symfony\Component\HttpFoundation\Session\Session;
+
 /*
 Plugin Name: WordPress Book List
 Plugin URI: http://doudou0911.com
@@ -15,6 +18,20 @@ define("DS", DIRECTORY_SEPARATOR);
 define("MAOSEA0125_WP_BOOKLIST_DIR", dirname(__FILE__));
 
 require_once MAOSEA0125_WP_BOOKLIST_DIR . DS . 'vendor/autoload.php';
+
+add_action('init', 'sessionStart', 1);
+add_action('wp_logout', 'sessionEnd');
+add_action('wp_login', 'sessionStart');
+
+function sessionStart() {
+    if(!session_id()) {
+        session_start();
+    }
+}
+
+function sessionEnd() {
+    session_destroy();
+}
 
 // 插件激活与未激活
 register_activation_hook( __FILE__, array( 'BooklistDatabase', 'createTable' ) );
@@ -48,12 +65,15 @@ $serviceContainer->setDefaultDatasource('default');
 // 初始化Twig
 $loader = new Twig_Loader_Filesystem(MAOSEA0125_WP_BOOKLIST_DIR . DS . 'templates');
 $twig = new Twig_Environment($loader, array(
+    'debug' => true,
     'cache' => MAOSEA0125_WP_BOOKLIST_DIR . DS . 'cache',
 ));
 $twig->clearCacheFiles();
+$twig->addExtension(new Twig_Extension_Debug());
 
 $request = Symfony\Component\HttpFoundation\Request::createFromGlobals();
-
+$session = new Symfony\Component\HttpFoundation\Session\Session();
+$request->setSession($session);
 // top level hook
 add_action( 'toplevel_page_maosea0125_book', 'toplevel_page_maosea0125_book_callback' );
 function toplevel_page_maosea0125_book_callback(){

@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 
 {% block content %}
+    {% for flashMessage in message %}
+        <p class="bg-danger" style="padding: 15px;">{{ flashMessage }}</p>
+    {% endfor %}
     <div class="wrap">
         <h1 class="wp-heading-inline">书籍</h1>
 

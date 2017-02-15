@@ -11,10 +11,9 @@ class Book
         $pagination->setPage(1);
         $pagination->init();
 
-        // echo $request->getSession()->getFlashBag()->get('message');
-
         return $twig->display('list.html', array(
             'pagination' => $pagination,
+            'message' => $request->getSession()->getFlashBag()->get('message'),
         ));
     }
 
@@ -28,9 +27,8 @@ class Book
             $book->delete();
         }
 
-        // $request->getSession()
-        //     ->getFlashBag()
-        //     ->add('message', '删除成功');
+        $flashbag = $request->getSession()->getFlashBag();
+        $flashbag->set('message', '删除成功');
 
         $response = new RedirectResponse('admin.php?page=maosea0125_book');
         return $response->send();
