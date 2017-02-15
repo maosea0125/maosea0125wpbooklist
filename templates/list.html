@@ -38,5 +38,15 @@
                 {% endif %}
             </tbody>
         </table>
+        {% if pagination.haveToPaginate() %}
+            <ul class="pagination">
+                {% if pagination.getPage() != pagination.getPreviousPage() %}
+                    <li><a href="admin.php?page=maosea0125_book&pager={{ pagination.getPreviousPage() }}">上一页</a></li>
+                {% endif %}
+                {% if pagination.getPage() != pagination.getNextPage() %}
+                    <li><a href="admin.php?page=maosea0125_book&pager={{ pagination.getNextPage() }}">下一页</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
     </div>
 {% endblock %}
