@@ -43,6 +43,15 @@ function registerBookListMenu() {
     add_menu_page( '书籍管理', '书籍管理', 'manage_options', 'maosea0125_book', '', plugins_url('/public/images/book.png', __FILE__), 26 );
 }
 
+function maosea0125_book_frontend(){
+    if(is_page('booklist')){
+        $dir = plugin_dir_path( __FILE__ );
+        include($dir."booklist.php");
+        exit;
+    }
+}
+add_action( 'wp', 'maosea0125_book_frontend' );
+
 // 初始化Propel
 $serviceContainer = \Propel\Runtime\Propel::getServiceContainer();
 $serviceContainer->checkVersion('2.0.0-dev');
