@@ -71,15 +71,6 @@ $manager->setName('default');
 $serviceContainer->setConnectionManager('default', $manager);
 $serviceContainer->setDefaultDatasource('default');
 
-// 初始化Twig
-$loader = new Twig_Loader_Filesystem(MAOSEA0125_WP_BOOKLIST_DIR . DS . 'templates');
-$twig = new Twig_Environment($loader, array(
-    'debug' => true,
-    'cache' => MAOSEA0125_WP_BOOKLIST_DIR . DS . 'cache',
-));
-$twig->clearCacheFiles();
-$twig->addExtension(new Twig_Extension_Debug());
-
 $request = Symfony\Component\HttpFoundation\Request::createFromGlobals();
 $session = new Symfony\Component\HttpFoundation\Session\Session();
 $request->setSession($session);
